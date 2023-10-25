@@ -1,5 +1,5 @@
 function LeftSidebar() {
-  return <h1>Left side bar</h1>;
+  return <section className=" custom-scrollbar leftsidebar"></section>;
 }
 
 export default LeftSidebar;

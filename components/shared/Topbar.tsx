@@ -1,3 +1,5 @@
+"use client";
+import { OrganizationSwitcher, SignOutButton, SignedIn } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +12,29 @@ function Topbar() {
           Threader
         </p>
       </Link>
+      <div className="flex items-center gap-1">
+        <div className="block md:hidden">
+          <SignedIn>
+            <SignOutButton>
+              <div className="flex cursor-pointer">
+                <Image
+                  src="/assets/logout.svg"
+                  alt="logout button"
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </SignOutButton>
+          </SignedIn>
+        </div>
+        <OrganizationSwitcher
+          appearance={{
+            elements: {
+              organizationSwitcherTrigger: "py-2 px-4",
+            },
+          }}
+        />
+      </div>
     </nav>
   );
 }
